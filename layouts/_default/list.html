@@ -1,0 +1,28 @@
+{{ define "main" }}
+<div class="container">
+  <article class="doc">
+    <nav class="breadcrumb">
+      <a href="{{ "/" | relURL }}">Home</a> &gt; {{ .Title }}
+    </nav>
+
+    <header>
+      <h1>{{ .Title }}</h1>
+    </header>
+
+    <div class="doc-content">
+      {{ .Content }}
+    </div>
+
+    {{ if .Pages }}
+    <ul class="doc-list">
+      {{ range .Pages.ByWeight }}
+      <li>
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        {{- with .Params.desc }} — {{ . }}{{ end }}
+      </li>
+      {{ end }}
+    </ul>
+    {{ end }}
+  </article>
+</div>
+{{ end }}

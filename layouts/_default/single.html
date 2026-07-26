@@ -1,0 +1,31 @@
+{{ define "main" }}
+<div class="{{ if eq .Section "dashboards" }}container-wide{{ else }}container{{ end }}">
+  <article class="doc">
+    <nav class="breadcrumb">
+      <a href="{{ "/" | relURL }}">Home</a>
+      {{- range .Ancestors.Reverse -}}
+        {{- if ne .Kind "home" }} &gt; <a href="{{ .RelPermalink }}">{{ .Title }}</a>{{- end -}}
+      {{- end }} &gt; {{ .Title }}
+    </nav>
+
+    <header>
+      <h1>{{ .Title }}</h1>
+    </header>
+
+    <div class="doc-content">
+      {{ .Content }}
+    </div>
+
+    {{ if eq .Section "dashboards" }}
+      {{ with .Params.grafana_src }}
+      <iframe class="grafana-embed" src="{{ . }}" title="{{ $.Title }} dashboard" loading="lazy"></iframe>
+      {{ else }}
+      <div class="dashboard-placeholder">
+        <p>Live dashboard coming soon.</p>
+        <!-- TODO: set grafana_src in this page's front matter to a public Grafana board or snapshot URL. Needs a public TLS endpoint for Grafana + allow_embedding. For an HN launch, prefer a snapshot URL (static, zero origin load) over a live board on the CMH1 nano. -->
+      </div>
+      {{ end }}
+    {{ end }}
+  </article>
+</div>
+{{ end }}

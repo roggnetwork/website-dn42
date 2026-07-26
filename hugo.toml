@@ -1,0 +1,21 @@
+baseURL = 'https://dn42.roggnetwork.com/'
+languageCode = 'en-us'
+title = 'rogg · dn42'
+disableKinds = ['taxonomy', 'term']
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.goldmark.parser]
+    [markup.goldmark.parser.attribute]
+      block = true
+  [markup.tableOfContents]
+    endLevel = 3
+    startLevel = 2
+  [markup.highlight]
+    style = "nord"
+    noClasses = false
+
+[params]
+  description = 'rogg on dn42 — AS4242423930, running bgpgg'
