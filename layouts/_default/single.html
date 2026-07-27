@@ -1,5 +1,5 @@
 {{ define "main" }}
-<div class="{{ if eq .Section "dashboards" }}container-wide{{ else }}container{{ end }}">
+<div class="container">
   <article class="doc">
     <nav class="breadcrumb">
       <a href="{{ "/" | relURL }}">Home</a>
@@ -10,6 +10,9 @@
 
     <header>
       <h1>{{ .Title }}</h1>
+      {{ with .Params.grafana_src }}
+      <a class="full-page-link" href="{{ . }}" target="_blank" rel="noopener">View full page</a>
+      {{ end }}
     </header>
 
     <div class="doc-content">
