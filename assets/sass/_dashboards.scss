@@ -4,6 +4,38 @@
   color: $gray-dark;
 }
 
+.pop-heading {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: $spacing-lg 0 $spacing-xs 0;
+}
+
+.pop-map {
+  height: 560px;
+  margin-top: $spacing-md;
+  border: 1px solid $gray;
+  border-radius: 8px;
+  background: $gray-light;
+  z-index: 0;
+
+  // Clean pill labels for each POP.
+  .pop-label.leaflet-tooltip {
+    background: $white;
+    border: 1px solid $gray;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+    border-radius: 4px;
+    padding: 2px 7px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    color: $black;
+  }
+
+  .pop-label.leaflet-tooltip::before {
+    display: none;
+  }
+}
+
 .grafana-embed {
   width: 100%;
   aspect-ratio: 16 / 9;
