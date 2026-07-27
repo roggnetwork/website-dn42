@@ -1,6 +1,6 @@
 baseURL = 'https://dn42.roggnetwork.com/'
 languageCode = 'en-us'
-title = 'rogg · dn42'
+title = 'rogg@dn42'
 disableKinds = ['taxonomy', 'term']
 
 [markup]
